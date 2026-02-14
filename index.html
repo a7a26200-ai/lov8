@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#ffc0cb;
+    overflow-x:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+/* القلوب المتحركة */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff1493;
+    font-size:20px;
+    animation: floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+    0%{ transform:translateY(0) scale(1); opacity:1; }
+    100%{ transform:translateY(-100vh) scale(1.5); opacity:0; }
+}
+
+/* النص المتحرك */
+#typingText{
+    font-size:20px;
+    color:#800000;
+    max-width:800px;
+    line-height:2;
+    min-height:200px;
+    margin-bottom:30px;
+}
+
+/* الصور */
+.love-images{
+    text-align:center;
+    margin-top:30px;
+}
+.love-images img{
+    width:300px;
+    border-radius:20px;
+    margin:20px auto;
+    display:block;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.love-images img:hover{
+    transform: scale(1.05);
+}
+
+/* التاريخ */
+.date{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:#800000;
+}
+</style>
+</head>
+<body>
+
+<div id="typingText"></div>
+
+<div class="love-images">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/couple-1868949_1280.jpg" alt="حبنا ❤️">
+    <img src="https://cdn.pixabay.com/photo/2017/02/14/03/14/couple-2063107_1280.jpg" alt="رومانسية 💗">
+    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="حبنا 💞">
+    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="كلنا ❤️">
+</div>
+
+<div class="date">تاريخ التعارف: 4/2/2026 ❤️</div>
+
+<!-- اغنية كلمة -->
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/LF13_TQUxLU?autoplay=1&loop=1"
+frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
+<br><br>
+
+<!-- اغنية معايا -->
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/HVgy8Ge0GJQ?autoplay=1&loop=1"
+frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
+<script>
+// typing effect
+const fullText = `بمناسبة عيد الحب حبيت اقولك...
+انا مش عايز حاجه غيرك لأن وجودك في حياتي هو الهديه اللي ربنا بعتها ليا...
+من أول يوم دخلتي فيه حياتي وانا بقيت انسان تاني بقيت اضحك من قلبي وأعيش كل لحظة...
+انتي بالنسبالي مش بس حبيبتي انتي حياتي انتي الشخص اللي بيخليني أحس إني بخير...
+انتي سبب ضحكتي وسندي في الوجع...
+بحب كل تفاصيلك بحب صوتك بحب ضحكتك بحب عصبيتك وطريقتك...
+كل يوم بشكر ربنا انك في حياتي وكل يوم بحبك أكثر...
+وجودك شفاء لقلبي وانتي روحي اللي سكنت جوايا...
+كل سنه وانتي حبيبتي كل سنه وانتي راحتي وسندي...
+بحبك النهاردة وبكره وبعد بكره وكل يوم هيعدي وأنا معاكي ❤️`;
+
+let i = 0;
+function typeWriter(){
+    if(i < fullText.length){
+        document.getElementById("typingText").innerHTML += fullText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 30); // سرعة الكتابة
+    }
+}
+typeWriter();
+
+// القلوب
+setInterval(function(){
+    var heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💗";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(function(){ heart.remove(); },6000);
+},300);
+</script>
+
+</body>
+</html>
